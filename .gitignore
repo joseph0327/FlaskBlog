@@ -1,0 +1,6 @@
+#ignore a certail file
+*.txt
+
+
+#config file
+config.py

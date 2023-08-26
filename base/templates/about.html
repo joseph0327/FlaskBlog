@@ -1,0 +1,36 @@
+{% extends "layout.html" %}
+{% block content %}
+    <div class="content section">
+        <div class="about-header">
+            <h1>About Us</h1>
+            <p>Welcome to our travel blog! We're a team of enthusiastic travelers dedicated to sharing our globetrotting adventures and insights.</p>
+        </div>
+
+        <div class="about-section">
+            <h2>Our Travel Blog</h2>
+            <p>At our travel blog, we take you on a journey around the world through vivid stories, captivating photos, and valuable travel tips. Our mission is to inspire your wanderlust and provide you with the information you need to embark on your own unforgettable journeys.</p>
+            <p>Whether you're an experienced explorer or a curious newbie, our blog is your destination for discovering new places and cultures. Join us in uncovering hidden gems, navigating diverse cuisines, and immersing ourselves in the beauty of different traditions.</p>
+        </div>
+       
+
+        
+
+        <div class="rules-section">
+            <h2>Rules for Our Travel Blog</h2>
+            <ol class="rules">
+                <li>Respect other travelers' opinions and experiences.</li>
+                <li>Avoid using offensive language or content.</li>
+                <li>Stay on topic when commenting on posts.</li>
+                <li>Share constructive and helpful insights.</li>
+                <li>Do not post spam or promotional content.</li>
+                <li>Use proper grammar and spelling in your comments.</li>
+                <li>Be courteous and considerate towards fellow travelers.</li>
+                <li>Keep discussions friendly and open-minded.</li>
+                <li>Refrain from sharing personal contact information.</li>
+                <li>Have fun and inspire others with your travel stories!</li>
+            </ol>
+        </div>
+    </div>
+
+    <script src="{{ url_for('static', filename='script.js') }}"></script>
+{% endblock content %}

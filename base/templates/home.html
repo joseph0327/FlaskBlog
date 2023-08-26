@@ -1,0 +1,38 @@
+{% extends 'layout.html' %}
+
+{% block content %}
+<div class="content-section pt-4">
+    {% for post in post.items %}
+    <div class="border rounded p-4 mb-4 pt-2 bg-light">
+        <div class="media ">
+            <img class="rounded-circle article-img" src="{{ url_for('static', filename='profile_pics/' + post.author.image_file) }}">
+            <div class="media-body ml-3">
+                <h2 class="article-title">
+                    <a href="{{ url_for('post.posts', post_id=post.id) }}" style="color: #000; text-transform: lowercase; font-size: 20px;">
+                        {{ post.title[:50] }}{% if post.title|length > 50 %}...{% endif %}
+                    </a>
+                </h2>
+                <div class="d-flex justify-content-between">
+                    <a class="mr-2" href="{{url_for('users.user_posts', username = post.author.username)}}" style="color: black;">posted by {{ post.author.username }}</a>
+                    <small class="text-muted">{{ post.date_posted.strftime('%Y-%m-%d %H:%M:%S') }}</small>
+                </div>
+                <div class="border-top mt-2 "> <!-- Add bg-light class here -->
+                    <p>{{ post.content[:400] }}{% if post.content|length > 300 %}...{% endif %}</p>
+                </div>
+            </div>
+        </div>
+    </div>
+    {% endfor %}
+    {% for page_num in post.iter_pages(left_edge=1,right_edge=1, left_current=1, right_current=1) %}
+        {%if page_num %} 
+                {%if post.page == page_num %} 
+                    <a class="btn btn-info mb-4"href="{{url_for('main.home', page=page_num )}}">{{page_num}}</a>
+                {%else%}
+                    <a class="btn btn-outline-info mb-4"href="{{url_for('main.home', page=page_num )}}">{{page_num}}</a>
+                {%endif%}
+        {%else%}
+        ...
+        {%endif%}
+    {%endfor%}
+</div>
+{% endblock content %}
